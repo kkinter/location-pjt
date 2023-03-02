@@ -2,6 +2,7 @@ from django.contrib.gis.db import models
 from django.utils import timezone
 from django.contrib.gis.geos import Point
 
+
 # Create your models here.
 class Listing(models.Model):
     title = models.CharField(max_length=150)
@@ -42,3 +43,6 @@ class Listing(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     # 좌표를 위한 Field
     location = models.PointField(blank=True, null=True, srid=4326)
+
+    def __str__(self):
+        return self.title
