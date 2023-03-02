@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 if os.name == 'nt':
     VENV_BASE = os.environ['VIRTUAL_ENV']
@@ -30,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-73%^^l*td3zsi9b($ou_s2d-uyu!ne7=n=7(h3v*(pmk^z6p=z'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,8 +89,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'lbrep_course_db',
+        'USER': 'postgres',
+        'PASSWORD': os.getenv("POSTGRE_PASSWORD"),
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
