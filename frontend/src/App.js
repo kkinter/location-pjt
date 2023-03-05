@@ -2,15 +2,23 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
 
 import "./App.css";
+
+// Compo
 import Testing from "./Components/Testing";
+import SecondComponent from "./Components/SecondComponent";
 
 function App() {
-  // fetch("http://127.0.0.1:8000/api/listings/")
-  //   .then(response => response.json())
-  //   .then(data => console.log(data));
-
+  function MyComponent() {
+    return (
+      <>
+        <h1>John has {1} apples </h1>
+      </>
+    );
+  }
   return (
     <BrowserRouter>
+      <MyComponent />
+      <SecondComponent />
       <Routes>
         <Route path="/testing" element={<Testing />} />
       </Routes>
