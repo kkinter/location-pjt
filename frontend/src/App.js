@@ -5,35 +5,26 @@ import "./App.css";
 
 // Compo
 import Testing from "./Components/Testing";
-import SecondComponent from "./Components/SecondComponent";
-import Fruit from "./Components/Fruit";
-import AppleComponent from "./Components/AppleComponent";
+import Home from "./Components/Home";
+import Login from "./Components/Login";
+import Listings from "./Components/Listings";
 
-const theFruits = [
-  { id: 1, name: "Apple", color: "red" },
-  { id: 2, name: "Orange", color: "orange" },
-  { id: 3, name: "Banana", color: "yellow" },
-  { id: 4, name: "Kiwi", color: "green" },
-  { id: 5, name: "Mango", color: "red" },
-  { id: 6, name: "Avocado", color: "green" },
-];
+// const theFruits = [
+//   { id: 1, name: "Apple", color: "red" },
+//   { id: 2, name: "Orange", color: "orange" },
+//   { id: 3, name: "Banana", color: "yellow" },
+//   { id: 4, name: "Kiwi", color: "green" },
+//   { id: 5, name: "Mango", color: "red" },
+//   { id: 6, name: "Avocado", color: "green" },
+// ];
 
 function App() {
   return (
     <BrowserRouter>
-      <AppleComponent />
-      {theFruits.map(fruit => {
-        // console.log(fruit, typeof fruit)
-        return (
-          <Fruit key={fruit.id} name={fruit.color} color={fruit.name} />
-          // <h5>
-          //   This is a {fruit.color} {fruit.name}
-          // </h5>
-        );
-      })}
-      <SecondComponent />
       <Routes>
-        <Route path="/testing" element={<Testing />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/listings" element={<Listings />} />
       </Routes>
     </BrowserRouter>
   );
