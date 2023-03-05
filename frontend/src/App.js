@@ -7,6 +7,7 @@ import "./App.css";
 import Testing from "./Components/Testing";
 import SecondComponent from "./Components/SecondComponent";
 import Fruit from "./Components/Fruit";
+import AppleComponent from "./Components/AppleComponent";
 
 const theFruits = [
   { id: 1, name: "Apple", color: "red" },
@@ -18,15 +19,9 @@ const theFruits = [
 ];
 
 function App() {
-  function MyComponent() {
-    return (
-      <>
-        <h1>John has {1} apples </h1>
-      </>
-    );
-  }
   return (
     <BrowserRouter>
+      <AppleComponent />
       {theFruits.map(fruit => {
         // console.log(fruit, typeof fruit)
         return (
@@ -36,7 +31,6 @@ function App() {
           // </h5>
         );
       })}
-      <MyComponent />
       <SecondComponent />
       <Routes>
         <Route path="/testing" element={<Testing />} />
